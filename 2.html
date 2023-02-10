@@ -4,6 +4,33 @@
     <title>포트폴리오</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <script>
+        function setColor (color) {
+            var links = document.querySelectorAll('a');
+            var i = 0;
+                while(i < links.length) {
+                    links[i].style.color = color;
+                    i = i+1; }
+        }
+
+        function nightDayHandler (self) {
+            var target = document.querySelector('body');
+        if (self.value=='night') {
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            self.value = 'day';
+
+            setColor('pink');
+
+        } else {
+            target.style.backgroundColor='white';
+            target.style.color='black';
+            self.value = 'night';
+
+            setColor('powderblue');
+        }
+        }
+    </script>
 </head>
 
 <body>
@@ -18,21 +45,13 @@
         </ol>
     
         <div id="article">
-
-            <input id="night_day" type="button" value="night" onclick="
-            if (document.querySelector('#night_day').value === 'night'){
-                document.querySelector('body').style.backgroundColor='black';
-                document.querySelector('body').style.color='white';
-                document.querySelector('#night_day').value = 'day';}
-            else {
-                document.querySelector('body').style.backgroundColor='white';
-                document.querySelector('body').style.color='black';
-                document.querySelector('#night_day').value = 'night';
-            }">
-
+ 
         <h2>포트폴리오</h2>
         -내용-
-    
+
+        <input id="night_day" type="button" value="night" onclick="
+            nightDayHandler(this);
+        ">     
         </div>
     </div>
 
